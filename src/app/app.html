@@ -1,0 +1,33 @@
+<div class="container">
+  <header>
+    <h1>Average Movie Runtime by Year</h1>
+    <p class="subtitle">Top 100 Major American Films</p>
+  </header>
+
+  <main>
+    @if (chartData().length > 0) {
+      <div class="chart-container">
+        <ngx-charts-bar-vertical
+          [results]="chartData()"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="false"
+          [showXAxisLabel]="true"
+          [showYAxisLabel]="true"
+          [xAxisLabel]="'Year'"
+          [yAxisLabel]="'Average Runtime (minutes)'"
+          [animations]="true"
+          [gradient]="true">
+        </ngx-charts-bar-vertical>
+      </div>
+    } @else {
+      <div class="loading">
+        <p>Loading chart data...</p>
+      </div>
+    }
+  </main>
+
+  <footer>
+    <p>Data represents the average runtime of top 100 films per year</p>
+  </footer>
+</div>
